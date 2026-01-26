@@ -1,0 +1,15 @@
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/bin/Debug/net9.0/Barber.Infrastructure.deps.json
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/bin/Debug/net9.0/Barber.Infrastructure.dll
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/bin/Debug/net9.0/Barber.Infrastructure.pdb
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/bin/Debug/net9.0/Barber.Domain.dll
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/bin/Debug/net9.0/Barber.Domain.pdb
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.csproj.AssemblyReference.cache
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.AssemblyInfoInputs.cache
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.AssemblyInfo.cs
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.I.6E0DFEAD.Up2Date
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.dll
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/refint/Barber.Infrastructure.dll
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.pdb
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/ref/Barber.Infrastructure.dll
