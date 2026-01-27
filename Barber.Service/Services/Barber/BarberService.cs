@@ -1,6 +1,8 @@
+using System.Net;
 using AutoMapper;
 using Barber.Domain.DTOs;
 using Barber.Domain.Entities;
+using Barber.Domain.Helper;
 using Barber.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,49 +10,59 @@ namespace Barber.Service.Services.Barber;
 
 public class BarberService(ApplicationDbContext applicationDbContext, IMapper mapper):IBarberService
 {
-    public async ValueTask<BarbersDto> AddBarberAsync(BarbersDto barberDto)
+    public async Task<ResponseModel<BarbersDto>> AddAsync(CreateBarberDto createBarberDto)
     {
-        Barbers barber = mapper.Map<Barbers>(barberDto);
+        var barber = mapper.Map<Barbers>(createBarberDto);
+        
         await applicationDbContext.AddAsync(barber);
         await applicationDbContext.SaveChangesAsync();
-        
-        BarbersDto newBarberDto=mapper.Map<BarbersDto>(barber);
-        return newBarberDto;
+
+        var dto= mapper.Map<BarbersDto>(barber);
+        return ResponseModel<BarbersDto>.Success(dto);
     }
 
-    public IQueryable<BarbersDto> RetrieveAllBarbers()
+    public async Task<TableResponse<List<BarbersDto>>> GetAllAsync(TableOptions options)
     {
         List<BarbersDto> barbersDto = new();
-        foreach (Barbers barber in applicationDbContext.Barbers)
-        {
-            barbersDto.Add(mapper.Map<BarbersDto>(barber));
-        }
         
-        return barbersDto.AsQueryable();
+        var entities =  applicationDbContext.Barbers
+            .AsQueryable();
+        
+        var count = await entities.CountAsync();
+        
+        var barbers = await entities
+            .Skip(options.First)
+            .Take(options.Rows)
+            .ToListAsync();
+        
+        var dtos = mapper.Map<List<BarbersDto>>(barbers);
+        
+        return new TableResponse<List<BarbersDto>>(){Total = count,Items = dtos};
     }
 
-    public async ValueTask<BarbersDto> RetrieveBarberById(Guid id)
+    public async Task<ResponseModel<BarbersDto>> GetByIdAsync(Guid id)
     {
-        Barbers? barber = await applicationDbContext.Barbers.FirstOrDefaultAsync(x=>x.Id == id);
-        BarbersDto barberDto=mapper.Map<BarbersDto>(barber);
-        return barberDto;
-    }
-
-    public async ValueTask<BarbersDto> ModifyBarberAsync(BarbersDto barberDto, Guid id)
-    {
-        Barbers? barber = await applicationDbContext.Barbers.FirstOrDefaultAsync(x=>x.Id == id);
+        var barber = await applicationDbContext.Barbers.FindAsync(id);
         if (barber is null)
-        {
-            throw new Exception("Barber is not found");
-        }
+            return ResponseModel<BarbersDto>.Fail("Barber not found", HttpStatusCode.NotFound);
+
+        var dto= mapper.Map<BarbersDto>(barber);
+        return ResponseModel<BarbersDto>.Success(dto);
+    }
+
+    public async Task<ResponseModel<BarbersDto>> UpdateAsync(UpdateBarberDto updateBarberDto, Guid id)
+    {
+        var barber = await applicationDbContext.Barbers.FindAsync(id);
+       
+        if(barber is null)
+            return ResponseModel<BarbersDto>.Fail("Barber not found",HttpStatusCode.NotFound);
         
-        Barbers updatedBarber = mapper.Map<Barbers>(barberDto);
-        updatedBarber.Id = barber.Id;
+        mapper.Map(updateBarberDto, barber);
+        var result=await applicationDbContext.SaveChangesAsync();
+        if(result < 1)
+            return ResponseModel<BarbersDto>.Fail("Error with save to database",HttpStatusCode.InternalServerError);
         
-        applicationDbContext.Barbers.Update(updatedBarber);
-        await applicationDbContext.SaveChangesAsync();
-        
-        BarbersDto newBarberDto=mapper.Map<BarbersDto>(updatedBarber);
-        return newBarberDto;
+        var dto= mapper.Map<BarbersDto>(barber);
+        return ResponseModel<BarbersDto>.Success(dto);
     }
 }

@@ -14,11 +14,11 @@ public class Location
     [Column("country")]
     public required string Country { get; set; }
     
-    [Column("city")]
-    public required string City { get; set; }
-    
     [Column("region")]
     public required string Region { get; set; }
+    
+    [Column("district")]
+    public required string District { get; set; }
     
     [Column("street")]
     public required string Street { get; set; }

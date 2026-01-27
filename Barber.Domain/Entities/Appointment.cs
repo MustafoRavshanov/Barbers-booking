@@ -33,9 +33,6 @@ public class Appointment
     public AppointmentStatus Status { get; set; } = AppointmentStatus.Booked;
 
     [Column("created_at")] public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
-
-    [Column("canceled_by")]
-    public CancelStatus CanceledBy { get; set; }
-
+    
     public ICollection<AppointmentService> AppointmentServices { get; set; } = [];
 }

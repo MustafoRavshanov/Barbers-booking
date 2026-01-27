@@ -17,6 +17,12 @@ public class WorkingHour
     [Column("start_time")]
     public TimeSpan StartTime { get; set; }
     
+    [Column("start_breaking_time")]
+    public TimeSpan StartBreakingTime { get; set; }
+    
+    [Column("end_breaking_time")]
+    public TimeSpan EndBreakingTime { get; set; }
+    
     [Column("end_time")]
     public TimeSpan EndTime { get; set; }
     

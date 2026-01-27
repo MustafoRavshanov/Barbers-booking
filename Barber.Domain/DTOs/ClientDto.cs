@@ -13,5 +13,11 @@ public class ClientDto
     public required string LastName { get; set; }
     public required string PhoneNumber { get; set; }
     public DateTimeOffset CreatedAt { get; set; }
-   
+}
+
+public class UpdateClientDto
+{
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+    public required string PhoneNumber { get; set; }
 }
