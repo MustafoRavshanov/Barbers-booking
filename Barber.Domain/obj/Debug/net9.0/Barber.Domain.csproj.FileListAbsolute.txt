@@ -9,3 +9,4 @@
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Domain/obj/Debug/net9.0/refint/Barber.Domain.dll
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Domain/obj/Debug/net9.0/Barber.Domain.pdb
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Domain/obj/Debug/net9.0/ref/Barber.Domain.dll
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Domain/obj/Debug/net9.0/Barber.Domain.sourcelink.json

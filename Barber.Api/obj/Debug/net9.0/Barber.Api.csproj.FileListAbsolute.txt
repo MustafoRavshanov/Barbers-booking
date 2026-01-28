@@ -137,3 +137,4 @@
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Api/obj/Debug/net9.0/Barber.Api.pdb
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Api/obj/Debug/net9.0/Barber.Api.genruntimeconfig.cache
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Api/obj/Debug/net9.0/ref/Barber.Api.dll
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Api/obj/Debug/net9.0/Barber.Api.sourcelink.json

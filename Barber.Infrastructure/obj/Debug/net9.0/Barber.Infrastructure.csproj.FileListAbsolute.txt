@@ -13,3 +13,4 @@
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/refint/Barber.Infrastructure.dll
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.pdb
 /Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/ref/Barber.Infrastructure.dll
+/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/obj/Debug/net9.0/Barber.Infrastructure.sourcelink.json
