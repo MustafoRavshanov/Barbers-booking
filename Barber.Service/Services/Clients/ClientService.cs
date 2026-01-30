@@ -24,6 +24,7 @@ public class ClientService(ApplicationDbContext applicationDbContext,IMapper map
 
     public async Task<TableResponse<List<ClientDto>>> GetAllAsync(TableOptions options)
     {
+        Console.WriteLine($"First: {options.First}, Rows: {options.Rows}");
         List<ClientDto> clientsDto = new();
         
         var entities = applicationDbContext.Clients.AsQueryable();

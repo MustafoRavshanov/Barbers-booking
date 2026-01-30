@@ -13,6 +13,7 @@ public class CreateLocationDto
 
 public class LocationDto
 {
+    public Guid Id { get; set; }
     public required string Country { get; set; }
     public required string Region { get; set; }
     public required string District { get; set; }

@@ -14,7 +14,7 @@ public class BarberController(IBarberService barberService) : ControllerBase
         => await barberService.AddAsync(informationDto);
 
     [HttpGet("get-all")]
-    public async Task<TableResponse<List<BarbersDto>>> GetAllasync(TableOptions options) =>
+    public async Task<TableResponse<List<BarbersDto>>> GetAllasync([FromQuery] TableOptions options) =>
         await barberService.GetAllAsync(options);
 
     [HttpGet("get-by-id/{id}")]

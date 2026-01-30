@@ -26,6 +26,10 @@ public class MappingProfile: Profile
         CreateMap<WorkingHour, WorkingHourDto>().ReverseMap();
         CreateMap<WorkingHour, UpdateWorkingHourDto>().ReverseMap();
 
+        CreateMap<Barbers, FullBarberInformationDto>().ReverseMap();
+        CreateMap<Location, FullBarberInformationDto>().ReverseMap();
+        CreateMap<WorkingHour, FullBarberInformationDto>().ReverseMap();
+
         CreateMap<Client, CreateClientDto>()
             .ReverseMap().ForMember(
                 dest => dest.CreatedAt,
@@ -74,7 +78,7 @@ public class MappingProfile: Profile
                 opt => opt
                     .MapFrom(_ => DateTimeOffset.UtcNow));
 
-        CreateMap<WorkingHour, FullBarberInformationDto>()
+        CreateMap<WorkingHour, CreateFullBarberInformationDto>()
             .ReverseMap().ForMember(
                 dest => dest.CreatedAt,
                 opt => opt

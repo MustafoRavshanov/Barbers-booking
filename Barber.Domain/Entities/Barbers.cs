@@ -32,5 +32,5 @@ public class Barbers
 
     public ICollection<WorkingHour> WorkingHours { get; set; } = [];
     public ICollection<Appointment> Appointments { get; set; } = [];
-    public ICollection<BarberServiceCatalog> BarberServiceCatalogs { get; set; } = [];
+    public ICollection<ServicesCatalog> ServicesCatalogs { get; set; } = [];
 }

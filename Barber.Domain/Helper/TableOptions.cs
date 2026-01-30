@@ -2,6 +2,6 @@ namespace Barber.Domain.Helper;
 
 public class TableOptions
 {
-    public int First { get; set; }
-    public int Rows { get; set; }
+    public int First { get; set; } = 0;
+    public int Rows { get; set; } =10;
 }

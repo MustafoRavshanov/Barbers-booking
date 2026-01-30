@@ -2,6 +2,7 @@ namespace Barber.Domain.DTOs;
 
 public class WorkingHourDto
 {
+    public Guid Id { get; set; }
     public DayOfWeek Day { get; set; }
     public TimeSpan StartTime { get; set; }
     public TimeSpan StartBreakingTime { get; set; }

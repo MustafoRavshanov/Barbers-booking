@@ -4,6 +4,7 @@ namespace Barber.Domain.DTOs;
 
 public class AppointmentDto
 {
+    public Guid Id { get; set; }
     public DateTimeOffset StartTime { get; set; }
     public DateTimeOffset EndTime { get; set; }
     public decimal Price { get; set; }

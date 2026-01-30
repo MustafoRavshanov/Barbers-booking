@@ -19,20 +19,6 @@ public class ApplicationDbContext(IConfiguration configuration):DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<BarberServiceCatalog>()
-       .HasKey(bs => new { bs.BarberId, bs.ServiceId });
-
-        modelBuilder.Entity<BarberServiceCatalog>()
-            .HasOne(bs => bs.Barber)
-            .WithMany(b => b.BarberServiceCatalogs)
-            .HasForeignKey(bs => bs.BarberId);
-
-        modelBuilder.Entity<BarberServiceCatalog>()
-            .HasOne(bs => bs.Service)
-            .WithMany(s => s.BarberServiceCatalogs)
-            .HasForeignKey(bs => bs.ServiceId);
-
-
         modelBuilder.Entity<AppointmentService>()
             .HasKey(asg => new { asg.AppointmentId, asg.ServiceId });
 
