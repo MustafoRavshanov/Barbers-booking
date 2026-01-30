@@ -29,4 +29,5 @@ public class ServicesCatalog
     public DateTimeOffset CreatedAt { get; set; } = DateTime.Now;
 
     public ICollection<AppointmentService> AppointmentServices { get; set; } = [];
+    public ICollection<BarberServiceCatalog> BarberServiceCatalogs { get; set; } = [];
 }

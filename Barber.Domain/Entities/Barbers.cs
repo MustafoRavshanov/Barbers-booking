@@ -31,6 +31,6 @@ public class Barbers
     public Location? Location { get; set; }
 
     public ICollection<WorkingHour> WorkingHours { get; set; } = [];
-    public ICollection<ServicesCatalog> Services { get; set; } = [];
     public ICollection<Appointment> Appointments { get; set; } = [];
+    public ICollection<BarberServiceCatalog> BarberServiceCatalogs { get; set; } = [];
 }

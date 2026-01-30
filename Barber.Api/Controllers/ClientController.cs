@@ -1,5 +1,4 @@
 using Barber.Domain.DTOs;
-using Barber.Domain.Entities;
 using Barber.Domain.Helper;
 using Barber.Service.Services.Clients;
 using Microsoft.AspNetCore.Mvc;

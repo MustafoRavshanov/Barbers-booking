@@ -859,35 +859,43 @@
     ]
   },
   "packageFolders": {
-    "/Users/macbook/.nuget/packages/": {}
+    "C:\\Users\\dell\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/macbook/RiderProjects/Start-up/Barber/Barber.Service/Barber.Service.csproj",
+      "projectUniqueName": "C:\\Users\\dell\\Source\\Repos\\Barbers-booking\\Barber.Service\\Barber.Service.csproj",
       "projectName": "Barber.Service",
-      "projectPath": "/Users/macbook/RiderProjects/Start-up/Barber/Barber.Service/Barber.Service.csproj",
-      "packagesPath": "/Users/macbook/.nuget/packages/",
-      "outputPath": "/Users/macbook/RiderProjects/Start-up/Barber/Barber.Service/obj/",
+      "projectPath": "C:\\Users\\dell\\Source\\Repos\\Barbers-booking\\Barber.Service\\Barber.Service.csproj",
+      "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dell\\Source\\Repos\\Barbers-booking\\Barber.Service\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/macbook/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/macbook/RiderProjects/Start-up/Barber/Barber.Domain/Barber.Domain.csproj": {
-              "projectPath": "/Users/macbook/RiderProjects/Start-up/Barber/Barber.Domain/Barber.Domain.csproj"
+            "C:\\Users\\dell\\Source\\Repos\\Barbers-booking\\Barber.Domain\\Barber.Domain.csproj": {
+              "projectPath": "C:\\Users\\dell\\Source\\Repos\\Barbers-booking\\Barber.Domain\\Barber.Domain.csproj"
             },
-            "/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/Barber.Infrastructure.csproj": {
-              "projectPath": "/Users/macbook/RiderProjects/Start-up/Barber/Barber.Infrastructure/Barber.Infrastructure.csproj"
+            "C:\\Users\\dell\\Source\\Repos\\Barbers-booking\\Barber.Infrastructure\\Barber.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\dell\\Source\\Repos\\Barbers-booking\\Barber.Infrastructure\\Barber.Infrastructure.csproj"
             }
           }
         }
@@ -933,7 +941,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

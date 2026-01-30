@@ -6,22 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 namespace Barber.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
-public class BarberController(IBarberService barberService):ControllerBase
+[Route("api/barber")]
+public class BarberController(IBarberService barberService) : ControllerBase
 {
     [HttpPost("create")]
-    public async Task<ResponseModel<BarbersDto>> CreateAsync(CreateBarberDto barberDto) =>
-        await barberService.AddAsync(barberDto);
-    
-    [HttpGet("getAll")]
-    public async Task<TableResponse<List<BarbersDto>>> GetAllasync(TableOptions  options)=>
+    public async Task<ResponseModel<FullBarberInformationDto>> CreateAsync(FullBarberInformationDto informationDto)
+        => await barberService.AddAsync(informationDto);
+
+    [HttpGet("get-all")]
+    public async Task<TableResponse<List<BarbersDto>>> GetAllasync(TableOptions options) =>
         await barberService.GetAllAsync(options);
-    
-    [HttpGet("getById {id}")]
-    public async Task<ResponseModel<BarbersDto>> GetByIdAsync(Guid id) =>
+
+    [HttpGet("get-by-id/{id}")]
+    public async Task<ResponseModel<BarbersDto>> GetByIdAsync([FromRoute] Guid id) =>
         await barberService.GetByIdAsync(id);
-    
-    [HttpPut("update {id}")]
-    public async Task<ResponseModel<BarbersDto>> UpdateAsync(UpdateBarberDto barberDto,Guid id) =>
-        await barberService.UpdateAsync(barberDto,id);
+
+    [HttpPut("update/{id}")]
+    public async Task<ResponseModel<BarbersDto>> UpdateAsync(UpdateBarberDto barberDto, Guid id) =>
+        await barberService.UpdateAsync(barberDto, id);
 }
+
+
