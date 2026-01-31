@@ -14,8 +14,11 @@ public class AppointmentService(ApplicationDbContext applicationDbContext, IMapp
     {
         var appointment = mapper.Map<Appointment>(appointmentDto);
         await applicationDbContext.Appointments.AddAsync(appointment);
-        await applicationDbContext.SaveChangesAsync();
-        
+        var result = await applicationDbContext.SaveChangesAsync();
+
+        if (result < 1)
+            return ResponseModel<AppointmentDto>.Fail("Error with saving to database",HttpStatusCode.InternalServerError);
+
         var dto = mapper.Map<AppointmentDto>(appointment);
         
         return ResponseModel<AppointmentDto>.Success(dto);

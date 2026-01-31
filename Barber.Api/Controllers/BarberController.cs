@@ -13,17 +13,17 @@ public class BarberController(IBarberService barberService) : ControllerBase
     public async Task<ResponseModel<FullBarberInformationDto>> CreateAsync(FullBarberInformationDto informationDto)
         => await barberService.AddAsync(informationDto);
 
-    [HttpGet("get-all")]
-    public async Task<TableResponse<List<BarbersDto>>> GetAllasync([FromQuery] TableOptions options) =>
-        await barberService.GetAllAsync(options);
+    [HttpPost("get-all")]
+    public async Task<TableResponse<List<BarbersDto>>> GetAllasync([FromBody] TableOptions options)
+        => await barberService.GetAllAsync(options);
 
     [HttpGet("get-by-id/{id}")]
-    public async Task<ResponseModel<BarbersDto>> GetByIdAsync([FromRoute] Guid id) =>
-        await barberService.GetByIdAsync(id);
+    public async Task<ResponseModel<BarbersDto>> GetByIdAsync([FromRoute] Guid id)
+        => await barberService.GetByIdAsync(id);
 
     [HttpPut("update/{id}")]
-    public async Task<ResponseModel<BarbersDto>> UpdateAsync(UpdateBarberDto barberDto, Guid id) =>
-        await barberService.UpdateAsync(barberDto, id);
+    public async Task<ResponseModel<BarbersDto>> UpdateAsync(UpdateBarberDto barberDto, Guid id)
+       => await barberService.UpdateAsync(barberDto, id);
 }
 
 

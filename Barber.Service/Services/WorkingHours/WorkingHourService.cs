@@ -14,8 +14,11 @@ public class WorkingHourService(ApplicationDbContext applicationDbContext, IMapp
     {
         var workingHour = mapper.Map<WorkingHour>(createWorkingHourDto);
         await applicationDbContext.WorkingHours.AddAsync(workingHour);
-        await applicationDbContext.SaveChangesAsync();
-        
+        var result = await applicationDbContext.SaveChangesAsync();
+
+        if(result < 1)
+            return ResponseModel<WorkingHourDto>.Fail("Error with saving to database", HttpStatusCode.InternalServerError);
+
         var dto= mapper.Map<WorkingHourDto>(workingHour);
         
         return ResponseModel<WorkingHourDto>.Success(dto);

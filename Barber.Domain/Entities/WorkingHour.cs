@@ -31,5 +31,5 @@ public class WorkingHour
     public Barbers? Barber { get; set; }
     
     [Column("created_at")]
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; }= DateTimeOffset.UtcNow;
 }

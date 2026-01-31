@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Barber.Domain.DTOs
+{
+    public class AppointmentServiceDto
+    {
+        public Guid AppointmentId { get; set; }
+        public Guid ServiceId { get; set; }
+        public decimal Price { get; set; }
+        public int DurationMinutes { get; set; }
+    }
+
+    public class UpdateAppointmentServiceDto
+    {
+        public Guid ServiceId { get; set; }
+        public decimal Price { get; set; }
+        public int DurationMinutes { get; set; }
+    }
+}

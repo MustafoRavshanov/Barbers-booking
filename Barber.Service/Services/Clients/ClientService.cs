@@ -15,8 +15,11 @@ public class ClientService(ApplicationDbContext applicationDbContext,IMapper map
         var client=mapper.Map<Client>(createClientDto);
         
         await applicationDbContext.Clients.AddAsync(client);
-        await applicationDbContext.SaveChangesAsync();
-        
+        var result = await applicationDbContext.SaveChangesAsync();
+
+        if (result < 1)
+            return ResponseModel<ClientDto>.Fail("Error with saving to database", HttpStatusCode.InternalServerError);
+
         var dto= mapper.Map<ClientDto>(client);
         
         return ResponseModel<ClientDto>.Success(dto);

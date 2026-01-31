@@ -19,9 +19,9 @@ public class Barbers
     
     [Column("phone_number")]
     public required string PhoneNumber { get; set; }
-    
+
     [Column("created_at")]
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
     
     [Column("room_name")]
     public required string RoomName { get; set; }
@@ -32,5 +32,5 @@ public class Barbers
 
     public ICollection<WorkingHour> WorkingHours { get; set; } = [];
     public ICollection<Appointment> Appointments { get; set; } = [];
-    public ICollection<ServicesCatalog> ServicesCatalogs { get; set; } = [];
+    public ICollection<BarberServiceCatalog> BarberServiceCatalogs { get; set; } = [];
 }

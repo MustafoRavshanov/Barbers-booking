@@ -10,22 +10,22 @@ namespace Barber.Controllers;
 public class AppointmentController(IAppointmentService appointmentService) : ControllerBase
 {
     [HttpPost("create")]
-    public async Task<ResponseModel<AppointmentDto>> CreateAsync(CreateAppointmentDto dto)=>
-        await appointmentService.AddAsync(dto);
+    public async Task<ResponseModel<AppointmentDto>> CreateAsync(CreateAppointmentDto dto)
+        =>await appointmentService.AddAsync(dto);
     
-    [HttpGet("get-all")]
-    public async Task<TableResponse<List<AppointmentDto>>> GetAllAsync([FromQuery] TableOptions  options)=>
-        await appointmentService.GetAllAsync(options);
+    [HttpPost("get-all")]
+    public async Task<TableResponse<List<AppointmentDto>>> GetAllAsync([FromBody] TableOptions  options)
+        => await appointmentService.GetAllAsync(options);
     
     [HttpGet("get-by-id/{id}")]
-    public async Task<ResponseModel<AppointmentDto>> GetByIdAsync(Guid id)=>
-        await appointmentService.GetByIdAsync(id);
+    public async Task<ResponseModel<AppointmentDto>> GetByIdAsync(Guid id)
+        => await appointmentService.GetByIdAsync(id);
 
     [HttpPut("update/{id}")]
-    public async Task<ResponseModel<AppointmentDto>> UpdateAsync(UpdateAppointmentDto dto, Guid id) =>
-        await appointmentService.UpdateAsync(dto, id);
+    public async Task<ResponseModel<AppointmentDto>> UpdateAsync(UpdateAppointmentDto dto, Guid id)
+        => await appointmentService.UpdateAsync(dto, id);
 
     [HttpDelete("delete/{id}")]
-    public async Task<ResponseModel<bool>> DeleteAsync(Guid id) =>
-        await appointmentService.RemoveAsync(id);
+    public async Task<ResponseModel<bool>> DeleteAsync(Guid id)
+        => await appointmentService.RemoveAsync(id);
 }
