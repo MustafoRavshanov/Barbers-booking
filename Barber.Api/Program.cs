@@ -1,7 +1,9 @@
 using Barber.Infrastructure.Data;
 using Barber.Service.Helper;
+using Barber.Service.Services.AppointmentAndServices;
 using Barber.Service.Services.Appointments;
 using Barber.Service.Services.Barber;
+using Barber.Service.Services.BarberAndServiceCatalogs;
 using Barber.Service.Services.Clients;
 using Barber.Service.Services.Locations;
 using Barber.Service.Services.ServiceCatalogs;
@@ -21,6 +23,8 @@ builder.Services.AddTransient<IClientService, ClientService>();
 builder.Services.AddTransient<ILocationService, LocationService>();
 builder.Services.AddTransient<IServiceCatalogService, ServiceCatalogService>();
 builder.Services.AddTransient<IWorkingHourService, WorkingHourService>();
+builder.Services.AddTransient<IBarberAndServiceCatalogsService, BarberAndServiceCatalogService>();
+builder.Services.AddTransient<IAppointmentAndServiceCatalogService, AppointmentAndServiceCatalogService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddControllers();

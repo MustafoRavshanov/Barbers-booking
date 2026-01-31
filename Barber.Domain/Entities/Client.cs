@@ -21,7 +21,7 @@ public class Client
     public required string PhoneNumber { get; set; }
     
     [Column("created_at")]
-    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; }= DateTimeOffset.UtcNow;
 
     public ICollection<Appointment> Appointments { get; set; } = [];
 }

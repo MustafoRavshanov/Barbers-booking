@@ -14,9 +14,13 @@ public class ServiceCatalogService(ApplicationDbContext applicationDbContext, IM
     {
         var serviceCatalog = mapper.Map<ServicesCatalog>(serviceDto);
         await applicationDbContext.ServicesCatalog.AddAsync(serviceCatalog);
-        await applicationDbContext.SaveChangesAsync();
-        
+        var result = await applicationDbContext.SaveChangesAsync();
+
+        if (result < 1)
+            return ResponseModel<ServiceCatalogDto>.Fail("Error with saving to database", HttpStatusCode.InternalServerError);
+
         var dto = mapper.Map<ServiceCatalogDto>(serviceCatalog);
+
         return ResponseModel<ServiceCatalogDto>.Success(dto);
     }
 

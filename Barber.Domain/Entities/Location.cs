@@ -27,8 +27,8 @@ public class Location
     public int HouseNumber { get; set; }
     
     [Column("created_at")]
-    public DateTimeOffset CreatedAt { get; set; }
-    
+    public DateTimeOffset CreatedAt { get; set; }= DateTimeOffset.UtcNow;
+
     [Column("latitude")]
     public decimal Latitude { get; set; }
     

@@ -34,5 +34,5 @@ public class Appointment
 
     [Column("created_at")] public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.UtcNow;
     
-    public ICollection<AppointmentService> AppointmentServices { get; set; } = [];
+    public ICollection<AppointmentAndService> AppointmentServices { get; set; } = [];
 }

@@ -15,8 +15,11 @@ public class LocationService(ApplicationDbContext applicationDbContext, IMapper 
         var location=mapper.Map<Location>(createLocationDto);
         
         await applicationDbContext.Locations.AddAsync(location);
-        await applicationDbContext.SaveChangesAsync();
-        
+        var result = await applicationDbContext.SaveChangesAsync();
+
+        if(result < 1)
+            return ResponseModel<LocationDto>.Fail("Error with saving to database", HttpStatusCode.InternalServerError);
+
         var dto= mapper.Map<LocationDto>(location);
         
         return ResponseModel<LocationDto>.Success(dto);
