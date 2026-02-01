@@ -9,7 +9,7 @@ public class ApplicationDbContext(IConfiguration configuration):DbContext
     private readonly string? _connection=configuration.GetConnectionString("DefaultConnection");
     
     public DbSet<Appointment> Appointments { get; set; }
-    public DbSet<AppointmentService> AppointmentServices { get; set; }
+    public DbSet<AppointmentAndService> AppointmentServices { get; set; }
     public DbSet<Barbers> Barbers { get; set; }
     public DbSet<Client> Clients { get; set; }
     public DbSet<Location> Locations { get; set; }
@@ -19,17 +19,30 @@ public class ApplicationDbContext(IConfiguration configuration):DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<AppointmentService>()
+        modelBuilder.Entity<AppointmentAndService>()
             .HasKey(asg => new { asg.AppointmentId, asg.ServiceId });
 
-        modelBuilder.Entity<AppointmentService>()
+        modelBuilder.Entity<AppointmentAndService>()
             .HasOne(asg => asg.Appointment)
             .WithMany(a => a.AppointmentServices)
             .HasForeignKey(asg => asg.AppointmentId);
 
-        modelBuilder.Entity<AppointmentService>()
+        modelBuilder.Entity<AppointmentAndService>()
             .HasOne(asg => asg.Service)
             .WithMany(s => s.AppointmentServices)
+            .HasForeignKey(asg => asg.ServiceId);
+
+        modelBuilder.Entity<BarberServiceCatalog>()
+           .HasKey(asg => new { asg.BarberId, asg.ServiceId });
+
+        modelBuilder.Entity<BarberServiceCatalog>()
+            .HasOne(asg => asg.Barber)
+            .WithMany(a => a.BarberServiceCatalogs)
+            .HasForeignKey(asg => asg.BarberId);
+
+        modelBuilder.Entity<BarberServiceCatalog>()
+            .HasOne(asg => asg.Service)
+            .WithMany(s => s.BarberServiceCatalogs)
             .HasForeignKey(asg => asg.ServiceId);
     }
 

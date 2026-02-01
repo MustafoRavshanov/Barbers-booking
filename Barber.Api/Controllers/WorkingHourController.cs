@@ -10,22 +10,22 @@ namespace Barber.Controllers;
 public class WorkingHourController(IWorkingHourService workingHourService) : ControllerBase
 {
     [HttpPost("create")]
-    public async Task<ResponseModel<WorkingHourDto>> CreateAsync(CreateWorkingHourDto dto) =>
-        await workingHourService.AddAsync(dto); 
+    public async Task<ResponseModel<WorkingHourDto>> CreateAsync(CreateWorkingHourDto dto)
+        => await workingHourService.AddAsync(dto); 
     
-    [HttpGet("get-all")]
-    public async Task<TableResponse<List<WorkingHourDto>>> GetAllAsync([FromQuery] TableOptions options) =>
-        await workingHourService.GetAllAsync(options);
+    [HttpPost("get-all")]
+    public async Task<TableResponse<List<WorkingHourDto>>> GetAllAsync([FromBody] TableOptions options)
+        => await workingHourService.GetAllAsync(options);
     
     [HttpGet("get-by-id/{id}")]
-    public async Task<ResponseModel<WorkingHourDto>> GetByIdAsync(Guid id) =>
-        await workingHourService.GetByIdAsync(id);
+    public async Task<ResponseModel<WorkingHourDto>> GetByIdAsync(Guid id)
+        => await workingHourService.GetByIdAsync(id);
     
     [HttpPut("update/{id}")]
-    public async Task<ResponseModel<WorkingHourDto>> UpdateAsync(UpdateWorkingHourDto dto, Guid id) =>
-        await workingHourService.UpdateAsync(dto, id);
+    public async Task<ResponseModel<WorkingHourDto>> UpdateAsync(UpdateWorkingHourDto dto, Guid id)
+        => await workingHourService.UpdateAsync(dto, id);
     
     [HttpDelete("delete/{id}")]
-    public async Task<ResponseModel<bool>> DeleteAsync(Guid id) =>
-        await workingHourService.RemoveAsync(id);
+    public async Task<ResponseModel<bool>> DeleteAsync(Guid id)
+        => await workingHourService.RemoveAsync(id);
 }
